@@ -1,0 +1,23 @@
+[
+    {
+      "id": 1,
+      "nom": "Souris sans fil",
+      "prix": 29.99,
+      "quantite": 50,
+      "categorie": "Périphériques"
+    },
+    {
+      "id": 2,
+      "nom": "Clavier mécanique",
+      "prix": 89.99,
+      "quantite": 15,
+      "categorie": "Périphériques"
+    },
+    {
+      "id": 3,
+      "nom": "Écran 24 pouces",
+      "prix": 199.99,
+      "quantite": 8,
+      "categorie": "Moniteurs"
+    }
+  ]
