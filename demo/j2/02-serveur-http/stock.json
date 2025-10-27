@@ -1,0 +1,14 @@
+[
+    {
+      "id": 1,
+      "nom": "Souris sans fil",
+      "prix": 29.99,
+      "quantite": 50
+    },
+    {
+      "id": 2,
+      "nom": "Clavier mécanique",
+      "prix": 89.99,
+      "quantite": 15
+    }
+  ]

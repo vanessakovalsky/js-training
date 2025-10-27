@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "nom": "Souris sans fil",
+    "prix": 29.99,
+    "quantite": 45
+  },
+  {
+    "id": 2,
+    "nom": "Clavier mécanique",
+    "prix": 89.99,
+    "quantite": 15
+  },
+  {
+    "id": 3,
+    "nom": "Écran 27 pouces",
+    "prix": 299.99,
+    "quantite": 8
+  },
+  {
+    "id": 4,
+    "nom": "Écran 27 pouces",
+    "prix": 299.99,
+    "quantite": 8
+  },
+  {
+    "id": 5,
+    "nom": "Écran 27 pouces",
+    "prix": 299.99,
+    "quantite": 8
+  }
+]
