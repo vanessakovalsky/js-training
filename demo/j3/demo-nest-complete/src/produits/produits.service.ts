@@ -4,9 +4,21 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateProduitDto } from './dto/create-produit.dto';
 import { UpdateProduitDto } from './dto/update-produit.dto';
 import { Produit } from './entities/produit.entity';
+import { LoggerService } from 'src/common/services/logger.service';
+import { AppConfig } from 'src/common/config/app.config';
+import { StockInsuffisantException } from '../common/exceptions/stock-insuffisant.exception';
+
 
 @Injectable()
 export class ProduitsService {
+  constructor(
+    private readonly logger: LoggerService,
+    private readonly appConfig: AppConfig,
+  ) {
+    if (appConfig.isDevelopment) {
+      this.logger.debug('Mode développement activé');
+    }
+  }
   // Base de données simulée (en mémoire)
   private produits: Produit[] = [
     {
@@ -41,11 +53,11 @@ export class ProduitsService {
    */
   findOne(id: number): Produit {
     const produit = this.produits.find((p) => p.id === id);
-    
+
     if (!produit) {
       throw new NotFoundException(`Produit #${id} non trouvé`);
     }
-    
+
     return produit;
   }
 
@@ -82,14 +94,14 @@ export class ProduitsService {
    */
   remove(id: number): Produit {
     const index = this.produits.findIndex((p) => p.id === id);
-    
+
     if (index === -1) {
       throw new NotFoundException(`Produit #${id} non trouvé`);
     }
 
     const produitSupprime = this.produits[index];
     this.produits.splice(index, 1);
-    
+
     return produitSupprime;
   }
 
@@ -103,5 +115,17 @@ export class ProduitsService {
         p.nom.toLowerCase().includes(lowerQuery) ||
         p.categorie?.toLowerCase().includes(lowerQuery),
     );
+  }
+
+  // Dans une méthode de vente par exemple
+  vendreProduit(id: number, quantite: number): Produit {
+    const produit = this.findOne(id);
+
+    if (produit.quantite < quantite) {
+      throw new StockInsuffisantException(produit.nom, quantite, produit.quantite);
+    }
+
+    produit.quantite -= quantite;
+    return produit;
   }
 }

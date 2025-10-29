@@ -107,7 +107,7 @@ export class ClientsController {
 
         const stats = {
             total: clients.length,
-            soldeTotal: clients.reduce((sum, p) => sum + p.solde, 0),
+            soldeTotal: clients.reduce((sum, p) => sum + p.solde!, 0),
         };
 
         return {

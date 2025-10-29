@@ -1,4 +1,5 @@
 import { Module } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ClientsModule } from './clients/clients.module';
@@ -7,7 +8,16 @@ import { ReservationsModule } from './reservations/reservations.module';
 import { CommonModule } from './common/common.module';
 
 @Module({
-  imports: [CommonModule, ClientsModule, ProduitsModule, ReservationsModule],
+  imports: [
+    ConfigModule.forRoot({
+      isGlobal: true,
+      envFilePath: '.env',
+    }),
+    CommonModule, 
+    ClientsModule, 
+    ProduitsModule, 
+    ReservationsModule
+  ],
   controllers: [AppController],
   providers: [AppService],
 })

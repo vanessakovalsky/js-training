@@ -1,13 +1,35 @@
 // === SERVICE DES clients ===
 
 import { Injectable, NotFoundException } from '@nestjs/common';
+import {
+    IsString,
+    IsEmail,
+    IsNumber,
+    IsOptional,
+    MinLength,
+    MaxLength,
+    Min } 
+    from 'class-validator';
 
 export class Client {
     id?: number;
+    @IsString({ message: 'Le nom doit être une chaîne de caractères' })
+    @MinLength(2, { message: 'Le nom doit avoir au moins 2 caractères' })
+    @MaxLength(50, { message: 'Le nom ne peut pas dépasser 50 caractères' })
     nom: string;
+
+    @IsString({ message: 'Le prénom doit être une chaîne de caractères' })
+    @MinLength(2, { message: 'Le prénom doit avoir au moins 2 caractères' })
+    @MaxLength(50, { message: 'Le prénom ne peut pas dépasser 50 caractères' })
     prenom: string;
+
+    @IsEmail({}, { message: 'L\'email doit être valide' })
     email: string;
-    solde: number;
+
+    @IsNumber({}, { message: 'Le solde initial doit être un nombre' })
+    @Min(0, { message: 'Le solde initial ne peut pas être négatif' })
+    @IsOptional()
+    solde?: number;
     createdAt: Date;
     updatedAt?: Date;
 }
@@ -117,7 +139,7 @@ export class ClientsService {
 
         Object.assign(Client, {
             ...client,
-            solde: client.solde - montant,
+            solde: client.solde! - montant,
         });
         return client;
     }
@@ -127,7 +149,7 @@ export class ClientsService {
 
         Object.assign(Client, {
             ...client,
-            solde: client.solde + montant,
+            solde: client.solde! + montant,
         });
         return client;
     }

@@ -52,7 +52,7 @@ export class ReservationsService {
     const montantTotal = produit.prix * quantite;
 
     // 5. Vérifier le solde du client
-    if (client.solde < montantTotal) {
+    if (client.solde! < montantTotal) {
       this.logger.error(`Solde insuffisant pour client #${clientId}`);
       throw new BadRequestException(
         `Solde insuffisant (requis: ${montantTotal}€, disponible: ${client.solde}€)`,
