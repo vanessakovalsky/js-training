@@ -17,18 +17,13 @@ Optimiser et finaliser l'application complète.
    - Recherche multicritères
    - Avec pagination
 
-3. **Créer un dashboard admin**
+3. BONUS : **Créer un dashboard admin**
    - `GET /admin/dashboard`
    - Top 5 produits les plus vendus
    - Top 5 clients (par montant dépensé)
    - CA du mois en cours
 
-4. **Tests Postman complets**
-   - Collection avec tous les endpoints
-   - Variables d'environnement
-
 **Critères de réussite :**
 - ✅ Endpoint stats fonctionnel
 - ✅ Recherche avancée avec filtres
 - ✅ Dashboard admin avec requêtes optimisées
-- ✅ Collection Postman complète qui passe
