@@ -25,7 +25,6 @@ Optimiser et finaliser l'application complète.
 
 4. **Tests Postman complets**
    - Collection avec tous les endpoints
-   - Tests automatisés
    - Variables d'environnement
 
 **Critères de réussite :**
