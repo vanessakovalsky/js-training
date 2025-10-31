@@ -1,0 +1,37 @@
+[
+    {
+      "id": 1,
+      "nom": "Dupont",
+      "prenom": "Martin",
+      "solde": 50.00,
+      "email": "martin.dupont@email.com"
+    },
+    {
+      "id": 2,
+      "nom": "Bernard",
+      "prenom": "Sophie",
+      "solde": 75.50,
+      "email": "sophie.bernard@email.com"
+    },
+    {
+      "id": 3,
+      "nom": "Petit",
+      "prenom": "Lucas",
+      "solde": 120.00,
+      "email": "lucas.petit@email.com"
+    },
+    {
+      "id": 4,
+      "nom": "Moreau",
+      "prenom": "Emma",
+      "solde": 30.00,
+      "email": "emma.moreau@email.com"
+    },
+    {
+      "id": 5,
+      "nom": "Laurent",
+      "prenom": "Thomas",
+      "solde": 50.00,
+      "email": "thomas.laurent@email.com"
+    }
+  ]
